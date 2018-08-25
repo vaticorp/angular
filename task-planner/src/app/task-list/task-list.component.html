@@ -1,4 +1,9 @@
-<app-statistic></app-statistic>
+<app-statistic
+  [tasksAll]="getTaskListsSize()"
+  [tasksFinish]="getTasksAmountByStatus('Выполнено')"
+  [tasksOverdue]="getTasksAmountByStatus('Просрочено')"
+  [tasksPlanned]="getTasksAmountByStatus('Запланировано')"
+></app-statistic>
 <br><br>
 <button class="btn btn-success" (click)="addTask()">Добавить задачу</button>
 <input type="checkbox" name="target" (change)="filterTasks($event)">Показывать завершенные задачи
@@ -9,6 +14,7 @@
     <th>Дата начала</th>
     <th>Дата окончания</th>
     <th>Статус</th>
+    <th>Команда</th>
   </tr>
   <tr>
     <td>Помыть посуду</td>
@@ -16,6 +22,7 @@
     <td>23.08.2018 23:00</td>
     <td>23.08.2018 23:30</td>
     <td>Актуально</td>
+    <td><button class="btn btn-danger" (click)="deleteTask()">Удалить задачу</button></td>
   </tr>
   <tr>
     <td>Проверить почту</td>
@@ -23,6 +30,7 @@
     <td>24.08.2018 09:00</td>
     <td>24.08.2018 10:00</td>
     <td>Завершено </td>
+    <td><button class="btn btn-danger" (click)="deleteTask()">Удалить задачу</button></td>
   </tr>
   <tr>
     <td>Купить телефон</td>
@@ -30,5 +38,13 @@
     <td>24.08.2018 19:00</td>
     <td>24.08.2018 20:00</td>
     <td>Актуально</td>
+    <td><button class="btn btn-danger" (click)="deleteTask()">Удалить задачу</button></td>
   </tr>
 </table>
+<app-list-row
+  [name]="'Убрать под столом'"
+  [category]="'Рабочие вопросы'"
+  [dateStart]="'24.08.2018 19:00	'"
+  [dateEnd]="'24.08.2018 10:00'"
+  [status]="'Просрочено'"
+  (deleteTaskEmitter)="deleteTaskFromArray($event)"></app-list-row>
