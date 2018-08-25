@@ -11,7 +11,7 @@
 .mtj.tmp/
 
 # Ignoring files
-.idea/
+.idea
 
 # Package Files #
 *.jar
