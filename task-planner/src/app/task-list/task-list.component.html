@@ -16,29 +16,15 @@
     <th>Статус</th>
     <th>Команда</th>
   </tr>
-  <tr>
-    <td>Помыть посуду</td>
-    <td>Работа по дому</td>
-    <td>23.08.2018 23:00</td>
-    <td>23.08.2018 23:30</td>
-    <td>Актуально</td>
-    <td><button class="btn btn-danger" (click)="deleteTask()">Удалить задачу</button></td>
-  </tr>
-  <tr>
-    <td>Проверить почту</td>
-    <td>Рабочие вопросы</td>
-    <td>24.08.2018 09:00</td>
-    <td>24.08.2018 10:00</td>
-    <td>Завершено </td>
-    <td><button class="btn btn-danger" (click)="deleteTask()">Удалить задачу</button></td>
-  </tr>
-  <tr>
-    <td>Купить телефон</td>
-    <td>Дом</td>
-    <td>24.08.2018 19:00</td>
-    <td>24.08.2018 20:00</td>
-    <td>Актуально</td>
-    <td><button class="btn btn-danger" (click)="deleteTask()">Удалить задачу</button></td>
+  <tr *ngFor="let item of tasks; let i = index">
+      <td *ngIf="item.status === 'Выполнено'&& visible">{{item.name}}</td>
+      <td *ngIf="item.status === 'Выполнено'&& visible">{{item.category}}</td>
+      <td *ngIf="item.status === 'Выполнено'&& visible">{{item.dateStart}}</td>
+      <td *ngIf="item.status === 'Выполнено'&& visible">{{item.dateEnd}}</td>
+      <td [ngStyle]="{'background-color': item.status === 'Просрочено' ? 'red' : 'white'}"  *ngIf="item.status === 'Выполнено'&& visible">{{item.status}}</td>
+      <td *ngIf="item.status === 'Выполнено'&& visible">
+        <button class="btn btn-danger" (click)="deleteTaskFromArray(item.name)">Удалить задачу</button>
+      </td>
   </tr>
 </table>
 <app-list-row
