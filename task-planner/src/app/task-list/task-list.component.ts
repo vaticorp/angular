@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Task } from './task.model';
 
 @Component({
   selector: 'app-task-list',
@@ -9,63 +10,51 @@ export class TaskListComponent implements OnInit {
 
   visible: boolean = false;
 
-  tasks = [
-    {
-      name: 'Название 1',
-      category: 'Категория 1',
-      dateStart: '18:15 08-10-2018',
-      dateEnd: '20:15 08-10-2018',
-      status: 'Выполнено'
-    },
-    {
-      name: 'Название 2',
-      category: 'Категория 2',
-      dateStart: '18:15 08-10-2018',
-      dateEnd: '20:15 08-10-2018',
-      status: 'Выполнено'
-    },
-    {
-      name: 'Название 5',
-      category: 'Категория 2',
-      dateStart: '18:15 08-10-2018',
-      dateEnd: '20:15 08-10-2018',
-      status: 'Выполнено'
-    },
-    {
-      name: 'Название 3',
-      category: 'Категория 2',
-      dateStart: '19:15 08-10-2018',
-      dateEnd: '12:15 09-10-2018',
-      status: 'Просрочено'
-    },
-    {
-      name: 'Название 5',
-      category: 'Категория 3',
-      dateStart: '11:15 08-10-2018',
-      dateEnd: '12:15 12-10-2018',
-      status: 'Запланировано'
-    },
-    {
-      name: 'Название 4',
-      category: 'Категория 2',
-      dateStart: '19:15 08-10-2018',
-      dateEnd: '12:15 09-10-2018',
-      status: 'Просрочено'
-    },
-    {
-      name: 'Название 6',
-      category: 'Категория 3',
-      dateStart: '11:15 08-10-2018',
-      dateEnd: '12:15 12-10-2018',
-      status: 'Запланировано'
-    },
-    {
-      name: 'Название 7',
-      category: 'Категория 3',
-      dateStart: '09:45 12-10-2018',
-      dateEnd: '11:45 12-10-2018',
-      status: 'Выполнено'
-    }
+  tasks: Task[] = [
+    new Task('Название 1',
+      'Категория 1',
+      '18:15 08-10-2018',
+      '20:15 08-10-2018',
+      'Выполнено'),
+    new Task('Название 2',
+      'Категория 2',
+      '18:15 08-10-2018',
+      '20:15 08-10-2018',
+      'Выполнено'),
+    new Task('Название 5',
+      'Категория 2',
+      '18:15 08-10-2018',
+      '20:15 08-10-2018',
+      'Выполнено'),
+    new Task('Название 3',
+      'Категория 2',
+      '19:15 08-10-2018',
+      '12:15 09-10-2018',
+      'Просрочено'),
+    new Task(
+      'Название 5',
+      'Категория 3',
+      '11:15 08-10-2018',
+      '12:15 12-10-2018',
+      'Запланировано'),
+    new Task('Название 4',
+      'Категория 2',
+      '19:15 08-10-2018',
+      '12:15 09-10-2018',
+      'Просрочено'
+    ),
+    new Task('Название 6',
+      'Категория 3',
+      '11:15 08-10-2018',
+      '12:15 12-10-2018',
+      'Запланировано'
+    ),
+    new Task('Название 7',
+      'Категория 3',
+      '09:45 12-10-2018',
+      '11:45 12-10-2018',
+      'Выполнено'
+    )
   ];
 
   deleteTaskFromArray(name: string) {
@@ -86,8 +75,8 @@ export class TaskListComponent implements OnInit {
     return this.tasks.filter(task => task.status === status).length;
   }
 
-  addTask() {
-    console.log('Задача создана');
+  addTask($event) {
+    this.tasks.push(<Task>$event.valueOf())
   }
 
   filterTasks($event) {

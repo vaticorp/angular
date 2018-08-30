@@ -5,7 +5,7 @@
   [tasksPlanned]="getTasksAmountByStatus('Запланировано')"
 ></app-statistic>
 <br><br>
-<button class="btn btn-success" (click)="addTask()">Добавить задачу</button>
+<app-task-add (addTaskEmitter)="addTask($event)"></app-task-add>
 <input type="checkbox" name="target" (change)="filterTasks($event)">Показывать завершенные задачи
 <table>
   <tr>
@@ -17,12 +17,12 @@
     <th>Команда</th>
   </tr>
   <tr *ngFor="let item of tasks; let i = index">
-      <td *ngIf="item.status === 'Выполнено'&& visible">{{item.name}}</td>
-      <td *ngIf="item.status === 'Выполнено'&& visible">{{item.category}}</td>
-      <td *ngIf="item.status === 'Выполнено'&& visible">{{item.dateStart}}</td>
-      <td *ngIf="item.status === 'Выполнено'&& visible">{{item.dateEnd}}</td>
-      <td [ngStyle]="{'background-color': item.status === 'Просрочено' ? 'red' : 'white'}"  *ngIf="item.status === 'Выполнено'&& visible">{{item.status}}</td>
-      <td *ngIf="item.status === 'Выполнено'&& visible">
+      <td *ngIf="item.status === 'Выполнено'&& visible||!visible">{{item.name}}</td>
+      <td *ngIf="item.status === 'Выполнено'&& visible||!visible">{{item.category}}</td>
+      <td *ngIf="item.status === 'Выполнено'&& visible||!visible">{{item.dateStart}}</td>
+      <td *ngIf="item.status === 'Выполнено'&& visible||!visible">{{item.dateEnd}}</td>
+      <td [ngStyle]="{'background-color': item.status === 'Просрочено' ? 'red' : 'white'}"  *ngIf="item.status === 'Выполнено'&& visible||!visible">{{item.status}}</td>
+      <td *ngIf="item.status === 'Выполнено'&& visible||!visible">
         <button class="btn btn-danger" (click)="deleteTaskFromArray(item.name)">Удалить задачу</button>
       </td>
   </tr>
