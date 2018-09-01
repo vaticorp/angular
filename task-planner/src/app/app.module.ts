@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { TaskEditComponent } from './task-list/task-edit/task-edit.component';
 import { LogDirective } from './shared/directives/log.directive';
 import { NavDirective } from './shared/directives/nav.directive';
+import { MyTitleCasePipe } from './shared/pipes/my-title-case.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavDirective } from './shared/directives/nav.directive';
     TaskAddComponent,
     TaskEditComponent,
     LogDirective,
-    NavDirective
+    NavDirective,
+    MyTitleCasePipe
   ],
   imports: [
     BrowserModule,
