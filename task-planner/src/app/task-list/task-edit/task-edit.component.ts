@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Task } from '../task.model';
 
 
@@ -7,7 +7,7 @@ import { Task } from '../task.model';
   templateUrl: './task-edit.component.html',
   styleUrls: ['./task-edit.component.css']
 })
-export class TaskEditComponent implements OnInit {
+export class TaskEditComponent implements OnInit, OnDestroy, OnChanges {
 
  @Input() edit;
  @Input() name;
@@ -31,10 +31,24 @@ export class TaskEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('onInit');
     this.name      = this.edit.name;
     this.category  = this.edit.category;
     this.dateStart = this.edit.dateStart;
     this.dateEnd   = this.edit.dateEnd;
     this.status    = this.edit.status;
+  }
+
+  ngOnDestroy(): void {
+    console.log('onDestroy');
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.edit.status);
+    console.log('ngOnChanges');
+    if (this.edit.status == 'Выполнено') {
+      alert('Запрещено редактировать задачу в статусе *Выполнено*!');
+      this.cancel()
+    }
   }
 }

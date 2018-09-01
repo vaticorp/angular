@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Task} from '../task.model';
 
 @Component({
@@ -7,6 +7,10 @@ import { Task} from '../task.model';
   styleUrls: ['./task-add.component.css']
 })
 export class TaskAddComponent implements OnInit {
+
+  ngOnInit() {
+    //console.log(`onInit`);
+  }
 
   @Input() name;
   @Input() category;
@@ -27,8 +31,4 @@ export class TaskAddComponent implements OnInit {
   }
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }
