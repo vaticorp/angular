@@ -9,6 +9,8 @@ import { ListRowComponent } from './task-list/list-row/list-row.component';
 import { TaskAddComponent } from './task-list/task-add/task-add.component';
 import { FormsModule } from '@angular/forms';
 import { TaskEditComponent } from './task-list/task-edit/task-edit.component';
+import { LogDirective } from './shared/directives/log.directive';
+import { NavDirective } from './shared/directives/nav.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { TaskEditComponent } from './task-list/task-edit/task-edit.component';
     StatisticComponent,
     ListRowComponent,
     TaskAddComponent,
-    TaskEditComponent
+    TaskEditComponent,
+    LogDirective,
+    NavDirective
   ],
   imports: [
     BrowserModule,
