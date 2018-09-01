@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Task } from './task.model';
 
 @Component({
@@ -9,6 +9,9 @@ import { Task } from './task.model';
 export class TaskListComponent implements OnInit {
 
   visible: boolean = false;
+  editMode: boolean = false;
+  indexArray: number;
+  edit: Task;
 
   tasks: Task[] = [
     new Task('Название 1',
@@ -59,12 +62,31 @@ export class TaskListComponent implements OnInit {
 
   deleteTaskFromArray(name: string) {
     var index = -1;
-    console.log('Задача' + name + 'удалена');
     index = this.tasks.findIndex((t) => t.name === name);
     if (index > -1) {
       this.tasks.splice(index, 1);
     }
     return true;
+  }
+
+  cancel() {
+    this.editMode = false;
+  }
+
+  editTask(editTask: Task, index:number) {
+    this.indexArray = index;
+    //this.tasks[index]
+    this.edit = {...editTask};
+    this.editMode = true;
+  }
+
+  saveEdit($event) {
+    this.tasks[this.indexArray] = <Task>$event.valueOf();
+    this.editMode = false;
+  }
+
+  getEdit() {
+    return this.edit;
   }
 
   getTaskListsSize() {
@@ -80,8 +102,6 @@ export class TaskListComponent implements OnInit {
   }
 
   filterTasks($event) {
-    //this.tasks.filter(task => task.status === status)
-    //console.log($event.target.checked);
     this.visible = $event.target.checked;
   }
 
