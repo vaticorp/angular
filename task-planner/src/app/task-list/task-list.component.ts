@@ -11,7 +11,7 @@ export class TaskListComponent implements OnInit {
   visible: boolean = false;
   editMode: boolean = false;
   indexArray: number;
-  edit: Task;
+  private _edit: Task;
 
   tasks: Task[] = [
     new Task('Название 1',
@@ -76,17 +76,17 @@ export class TaskListComponent implements OnInit {
   editTask(editTask: Task, index:number) {
     this.indexArray = index;
     //this.tasks[index]
-    this.edit = {...editTask};
+    this._edit = {...editTask};
     this.editMode = true;
   }
 
-  saveEdit($event) {
-    this.tasks[this.indexArray] = <Task>$event.valueOf();
+  saveEdit(task: Task) {
+    this.tasks[this.indexArray] = task;
     this.editMode = false;
   }
 
-  getEdit() {
-    return this.edit;
+  get edit() {
+    return this._edit;
   }
 
   getTaskListsSize() {
@@ -97,8 +97,8 @@ export class TaskListComponent implements OnInit {
     return this.tasks.filter(task => task.status === status).length;
   }
 
-  addTask($event) {
-    this.tasks.push(<Task>$event.valueOf())
+  addTask(task: Task) {
+    this.tasks.push(task)
   }
 
   filterTasks($event) {

@@ -11,7 +11,7 @@
 <div *ngIf="editMode === true">
   <app-task-edit (cancelTaskEmitter)="cancel()"
                  (editTaskEmitter)="saveEdit($event)"
-                 [edit]="getEdit()">
+                 [edit]="edit">
   </app-task-edit>
 </div>
 <input type="checkbox" name="target" (change)="filterTasks($event)">Показывать завершенные задачи

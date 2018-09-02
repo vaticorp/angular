@@ -10,11 +10,6 @@ import { Task } from '../task.model';
 export class TaskEditComponent implements OnInit, OnDestroy, OnChanges {
 
  @Input() edit;
- @Input() name;
- @Input() category;
- @Input() dateStart;
- @Input() dateEnd;
- @Input() status;
  @Output() cancelTaskEmitter = new EventEmitter();
  @Output() editTaskEmitter = new EventEmitter();
 
@@ -25,18 +20,12 @@ export class TaskEditComponent implements OnInit, OnDestroy, OnChanges {
     this.cancelTaskEmitter.emit();
   }
 
-  saveTask(nam: string) {
-    var editTask  = new Task(this.name, this.category, this.dateStart, this.dateEnd, this.status);
-    this.editTaskEmitter.emit(editTask);
+  saveTask() {
+    this.editTaskEmitter.emit(this.edit);
   }
 
   ngOnInit() {
     console.log('onInit');
-    this.name      = this.edit.name;
-    this.category  = this.edit.category;
-    this.dateStart = this.edit.dateStart;
-    this.dateEnd   = this.edit.dateEnd;
-    this.status    = this.edit.status;
   }
 
   ngOnDestroy(): void {

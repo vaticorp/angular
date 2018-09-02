@@ -1,9 +1,9 @@
-Задача: <input type="text" nav size="5" name="name" [(ngModel)]="name">
-Категория: <input type="text" nav size="5" name="category" [(ngModel)]="category">
-Начало<input type="text" log nav size="5" name="dateStart" [(ngModel)]="dateStart">
-Окончание: <input type="text" nav log size="5" name="dateEnd" [(ngModel)]="dateEnd">
+Задача: <input type="text" nav size="5" name="name" [(ngModel)]="edit.name">
+Категория: <input type="text" nav size="5" name="category" [(ngModel)]="edit.category">
+Начало<input type="text" log nav size="5" name="dateStart" [(ngModel)]="edit.dateStart">
+Окончание: <input type="text" nav log size="5" name="dateEnd" [(ngModel)]="edit.dateEnd">
 <!--Статус: <input type="text" nav size="5" name="status" [(ngModel)]="status">-->
-Статус: <select name="status" [(ngModel)]="status">
+Статус: <select name="status" [(ngModel)]="edit.status">
   <option value="Выполнено">Выполнено</option>
   <option value="Выполняется">Выполняется</option>
   <option value="Запланировано">Запланировано</option>
