@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { HelperService } from '../../shared/services/helper.service';
 
 @Component({
   selector: 'app-list-row',
@@ -12,6 +13,7 @@ export class ListRowComponent implements OnInit {
   @Input() dateStart;
   @Input() dateEnd;
   @Input() status;
+  private helperService = new HelperService();
 
   @Output() deleteTaskEmitter = new EventEmitter<string>();
 

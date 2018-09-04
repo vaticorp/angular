@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MomentModule } from 'ngx-moment';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -28,7 +29,8 @@ import { MyTitleCasePipe } from './shared/pipes/my-title-case.pipe';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    MomentModule
   ],
   providers: [],
   bootstrap: [AppComponent]
