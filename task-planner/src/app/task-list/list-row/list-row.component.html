@@ -1,8 +1,8 @@
 <tr>
   <td>{{name}}</td>
   <td>{{category}}</td>
-  <td>{{ helperService.beautifyDate(dateStart,'YYYY-MM-DD','DD MMMM YY')}}</td>
-  <td>{{ helperService.beautifyDate(dateEnd,'YYYY-MM-DD','DD MMMM YY')}}</td>
+  <td>{{ this.helperService.beautifyDate(dateStart,'YYYY-MM-DD','DD MMMM YY')}}</td>
+  <td>{{ this.helperService.beautifyDate(dateEnd,'YYYY-MM-DD','DD MMMM YY')}}</td>
   <td>{{status}}</td>
    <button class="btn btn-danger" (click)="deleteTask()">Удалить задачу</button>
 </tr>

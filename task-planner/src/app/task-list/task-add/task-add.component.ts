@@ -1,10 +1,12 @@
 import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Task} from '../task.model';
+import { HelperService } from '../../shared/services/helper.service';
 
 @Component({
   selector: 'app-task-add',
   templateUrl: './task-add.component.html',
-  styleUrls: ['./task-add.component.css']
+  styleUrls: ['./task-add.component.css'],
+  providers: [HelperService]
 })
 export class TaskAddComponent implements OnInit {
 
@@ -30,5 +32,5 @@ export class TaskAddComponent implements OnInit {
     this.status = '';
   }
 
-  constructor() { }
+  constructor(private helperService: HelperService) { }
 }

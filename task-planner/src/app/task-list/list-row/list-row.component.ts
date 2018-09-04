@@ -4,7 +4,8 @@ import { HelperService } from '../../shared/services/helper.service';
 @Component({
   selector: 'app-list-row',
   templateUrl: './list-row.component.html',
-  styleUrls: ['./list-row.component.css']
+  styleUrls: ['./list-row.component.css'],
+  providers: [HelperService]
 })
 export class ListRowComponent implements OnInit {
 
@@ -13,7 +14,6 @@ export class ListRowComponent implements OnInit {
   @Input() dateStart;
   @Input() dateEnd;
   @Input() status;
-  private helperService = new HelperService();
 
   @Output() deleteTaskEmitter = new EventEmitter<string>();
 
@@ -21,7 +21,9 @@ export class ListRowComponent implements OnInit {
     this.deleteTaskEmitter.emit(this.name);
   }
 
-  constructor() { }
+  constructor(private helperService: HelperService) {
+
+  }
 
   ngOnInit() {
   }

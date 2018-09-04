@@ -1,11 +1,13 @@
 import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Task } from '../task.model';
+import { HelperService } from '../../shared/services/helper.service';
 
 
 @Component({
   selector: 'app-task-edit',
   templateUrl: './task-edit.component.html',
-  styleUrls: ['./task-edit.component.css']
+  styleUrls: ['./task-edit.component.css'],
+  providers: [HelperService]
 })
 export class TaskEditComponent implements OnInit, OnDestroy, OnChanges {
 
@@ -13,7 +15,7 @@ export class TaskEditComponent implements OnInit, OnDestroy, OnChanges {
  @Output() cancelTaskEmitter = new EventEmitter();
  @Output() editTaskEmitter = new EventEmitter();
 
-  constructor() {
+  constructor(private helperService: HelperService) {
   }
 
   cancel() {
