@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HelperService } from '../../shared/services/helper.service';
+import { DeleteService } from '../../shared/services/delete.service';
 
 @Component({
   selector: 'app-list-row',
   templateUrl: './list-row.component.html',
-  styleUrls: ['./list-row.component.css'],
-  providers: [HelperService]
+  styleUrls: ['./list-row.component.css']
 })
 export class ListRowComponent implements OnInit {
 
@@ -15,17 +15,16 @@ export class ListRowComponent implements OnInit {
   @Input() dateEnd;
   @Input() status;
 
-  @Output() deleteTaskEmitter = new EventEmitter<string>();
+  //@Output() deleteTaskEmitter = new EventEmitter<string>();
 
   deleteTask() {
-    this.deleteTaskEmitter.emit(this.name);
+    this.deleteService.updateDate(this.name);
+    //this.deleteTaskEmitter.emit(this.name);
   }
 
-  constructor(private helperService: HelperService) {
-
+  constructor(private helperService: HelperService, private deleteService: DeleteService) {
   }
 
   ngOnInit() {
   }
-
 }

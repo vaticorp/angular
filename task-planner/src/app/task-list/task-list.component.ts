@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Task } from './task.model';
+import { DeleteService } from '../shared/services/delete.service';
 
 @Component({
   selector: 'app-task-list',
@@ -105,9 +106,13 @@ export class TaskListComponent implements OnInit {
     this.visible = $event.target.checked;
   }
 
-  constructor() { }
+  constructor(private deleteService: DeleteService) {}
 
   ngOnInit() {
+    this.deleteService.dataUpdate$.subscribe((data: string) => {
+      console.log('Подписка на удаление задачи: ' + data);
+      this.deleteTaskFromArray(data);
+    });
   }
 
 }

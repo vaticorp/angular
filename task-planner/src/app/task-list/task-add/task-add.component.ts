@@ -5,8 +5,7 @@ import { HelperService } from '../../shared/services/helper.service';
 @Component({
   selector: 'app-task-add',
   templateUrl: './task-add.component.html',
-  styleUrls: ['./task-add.component.css'],
-  providers: [HelperService]
+  styleUrls: ['./task-add.component.css']
 })
 export class TaskAddComponent implements OnInit {
 

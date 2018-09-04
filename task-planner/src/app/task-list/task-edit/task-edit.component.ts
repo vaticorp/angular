@@ -6,8 +6,7 @@ import { HelperService } from '../../shared/services/helper.service';
 @Component({
   selector: 'app-task-edit',
   templateUrl: './task-edit.component.html',
-  styleUrls: ['./task-edit.component.css'],
-  providers: [HelperService]
+  styleUrls: ['./task-edit.component.css']
 })
 export class TaskEditComponent implements OnInit, OnDestroy, OnChanges {
 

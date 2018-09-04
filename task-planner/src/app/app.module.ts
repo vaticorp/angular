@@ -13,6 +13,8 @@ import { TaskEditComponent } from './task-list/task-edit/task-edit.component';
 import { LogDirective } from './shared/directives/log.directive';
 import { NavDirective } from './shared/directives/nav.directive';
 import { MyTitleCasePipe } from './shared/pipes/my-title-case.pipe';
+import { DeleteService } from './shared/services/delete.service';
+import { HelperService } from './shared/services/helper.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,10 @@ import { MyTitleCasePipe } from './shared/pipes/my-title-case.pipe';
     FormsModule,
     MomentModule
   ],
-  providers: [],
+  providers: [
+    DeleteService,
+    HelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,8 +4,7 @@ import { HelperService } from '../../shared/services/helper.service';
 @Component({
   selector: 'app-statistic',
   templateUrl: './statistic.component.html',
-  styleUrls: ['./statistic.component.css'],
-  providers: [HelperService]
+  styleUrls: ['./statistic.component.css']
 })
 export class StatisticComponent implements OnInit {
 
