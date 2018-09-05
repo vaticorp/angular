@@ -17,6 +17,7 @@ import { TaskAddComponent } from './task/task-list/task-add/task-add.component';
 import { TaskEditComponent } from './task/task-list/task-edit/task-edit.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import {AppRoutingModule} from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CommonModule } from '@angular/common';
     SharedModule,
     TaskModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ],
   providers: [
     DeleteService,

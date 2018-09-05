@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import {AppRoutingModule} from '../../app-routing/app-routing.module';
+
 
 @Component({
   selector: 'app-header',
@@ -9,7 +12,9 @@ export class HeaderComponent implements OnInit {
 
   userName = 'Святослав';
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute) {
+    activatedRoute.params.subscribe((params)=> console.log(params['id']))
+  }
 
   ngOnInit() {
   }
