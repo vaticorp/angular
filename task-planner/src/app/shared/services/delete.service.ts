@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/index';
-import { Task } from '../../task-list/task.model';
 
 @Injectable()
 export class DeleteService {

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Task } from './task.model';
-import { DeleteService } from '../shared/services/delete.service';
+import { DeleteService } from '../../shared/services/delete.service';
+
 
 @Component({
   selector: 'app-task-list',
