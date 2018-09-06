@@ -23,6 +23,10 @@ export class ListRowComponent implements OnInit {
     //this.deleteTaskEmitter.emit(this.name);
   }
 
+  getFormatDate(date: string) {
+    return this.helperService.beautifyDate(date,'YYYY-MM-DD','DD MMMM YY')
+  }
+
   constructor(private helperService: HelperService, private deleteService: DeleteService) {
   }
 
