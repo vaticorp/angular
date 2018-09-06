@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {AppRoutingModule} from '../../app-routing/app-routing.module';
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -18,5 +17,4 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
