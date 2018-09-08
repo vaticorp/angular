@@ -3,6 +3,7 @@ import { Task } from './task.model';
 import { DeleteService } from '../../shared/services/delete.service';
 import { Router } from '@angular/router';
 import { EditService } from '../../shared/services/edit.service';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-task-list',
@@ -115,7 +116,8 @@ export class TaskListComponent implements OnInit {
     this.visible = $event.target.checked;
   }
 
-  constructor(private deleteService: DeleteService,private editService: EditService,private router: Router) {}
+  constructor(private deleteService: DeleteService,private editService: EditService,private router: Router,private authService: AuthService) {
+  }
 
   ngOnInit() {
     this.deleteService.dataUpdate$.subscribe((data: string) => {

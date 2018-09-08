@@ -9,6 +9,9 @@ import { TaskEditComponent } from './task-list/task-edit/task-edit.component';
 import { FormsModule } from '@angular/forms';
 import { DeleteService } from '../shared/services/delete.service';
 import {EditService} from '../shared/services/edit.service';
+import { AuthService } from '../core/auth.service';
+import { AuthGuard } from '../shared/services/authguard.service';
+import {GuestGuard} from '../shared/services/guestguard.service';
 
 @NgModule({
   imports: [
@@ -17,7 +20,10 @@ import {EditService} from '../shared/services/edit.service';
   ],
   providers: [
     DeleteService,
-    EditService
+    EditService,
+    AuthService,
+    AuthGuard,
+    GuestGuard
   ],
   declarations: [
     NotesListComponent,

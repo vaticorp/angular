@@ -1,10 +1,10 @@
 <nav class="navbar navbar-light bg-light justify-content-between">
   <button class="btn btn-success" >Список задач</button>
-   {{ userName}}
-</nav>
+  {{ userName}}
+  <button class="btn btn-success" (click)="logOff()">Выйти</button>
+ </nav>
 
 <ul class="sidebar-nav">
   <li routerLink="/tasks">Задачи</li>
   <li routerLink="/notes">Заметки</li>
-  <!--<li routerLink="/tasks/1">Редактор</li>-->
 </ul>
