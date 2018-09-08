@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
-import { Task } from '../task.model';
 import { HelperService } from '../../../shared/services/helper.service';
-
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { Task } from '../task.model';
+import { EditService } from '../../../shared/services/edit.service';
 
 @Component({
   selector: 'app-task-edit',
@@ -12,22 +12,23 @@ import { HelperService } from '../../../shared/services/helper.service';
 export class TaskEditComponent implements OnInit, OnDestroy, OnChanges {
 
  @Input() edit;
- @Output() cancelTaskEmitter = new EventEmitter();
- @Output() editTaskEmitter = new EventEmitter();
 
-  constructor(private helperService: HelperService) {
+  constructor(private helperService: HelperService, private editService: EditService ,private router: Router, private route: ActivatedRoute) {
   }
 
   cancel() {
-    this.cancelTaskEmitter.emit();
+    this.router.navigate(['../']);
   }
 
   saveTask() {
-    this.editTaskEmitter.emit(this.edit);
+    console.log(this.edit)
+    this.editService.updateDate(this.edit);
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 
   ngOnInit() {
-    console.log('onInit');
+    let queryPar = this.route.snapshot.queryParamMap;
+    this.edit = new Task(queryPar.get('id'), queryPar.get('name'), queryPar.get('category'), queryPar.get('dateStart'), queryPar.get('dateEnd'), queryPar.get('status'));
   }
 
   ngOnDestroy(): void {

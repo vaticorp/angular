@@ -23,7 +23,7 @@ export class TaskAddComponent implements OnInit {
   @Output() addTaskEmitter = new EventEmitter<Task>();
 
   addTask() {
-    var newTask = new Task(this.name, this.category, this.dateStart, this.dateEnd, this.status);
+    var newTask = new Task('55', this.name, this.category, this.dateStart, this.dateEnd, this.status);
     this.addTaskEmitter.emit(newTask);
     this.name = '';
     this.category = '';

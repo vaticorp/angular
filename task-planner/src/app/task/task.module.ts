@@ -8,6 +8,7 @@ import { TaskAddComponent } from './task-list/task-add/task-add.component';
 import { TaskEditComponent } from './task-list/task-edit/task-edit.component';
 import { FormsModule } from '@angular/forms';
 import { DeleteService } from '../shared/services/delete.service';
+import {EditService} from '../shared/services/edit.service';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { DeleteService } from '../shared/services/delete.service';
     FormsModule
   ],
   providers: [
-    DeleteService
+    DeleteService,
+    EditService
   ],
   declarations: [
     NotesListComponent,
