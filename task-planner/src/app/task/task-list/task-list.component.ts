@@ -4,6 +4,7 @@ import { DeleteService } from '../../shared/services/delete.service';
 import { Router } from '@angular/router';
 import { EditService } from '../../shared/services/edit.service';
 import { AuthService } from '../../core/auth.service';
+import { TaskRepositoryService } from '../../shared/services/taskrepository.service';
 
 @Component({
   selector: 'app-task-list',
@@ -15,7 +16,9 @@ export class TaskListComponent implements OnInit {
   visible: boolean = false;
   indexArray: number;
   private _edit: Task;
+  private tasks: Task[];
 
+/*
   tasks: Task[] = [
     new Task('1',
       'Название 1',
@@ -69,31 +72,32 @@ export class TaskListComponent implements OnInit {
       'Выполнено'
     )
   ];
+*/
 
   deleteTaskFromArray(name: string) {
-    var index = -1;
-    index = this.tasks.findIndex((t) => t.name === name);
-    if (index > -1) {
-      this.tasks.splice(index, 1);
-    }
-    return true;
+    this.taskRepositoryService.delete(name);
   }
 
   editTask(editTask: Task, index:number) {
     this.indexArray = index;
     this._edit = {...editTask};
-    this.router.navigate(['tasks', editTask.id], {queryParams: {name: this._edit.name,
-                                                                                 category: this._edit.category,
-                                                                                 dateStart: this._edit.dateStart,
-                                                                                 dateEnd: this._edit.dateEnd,
-                                                                                 id: this._edit.id,
-                                                                                 status: this._edit.status}})
+    this.router.navigate(['tasks', editTask.id],
+      {
+        queryParams: {
+          name: this._edit.name,
+          category: this._edit.category,
+          dateStart: this._edit.dateStart,
+          dateEnd: this._edit.dateEnd,
+          id: this._edit.id,
+          status: this._edit.status}
+      })
   }
 
   saveEdit(task: Task) {
-    console.log('До обновления' + this.tasks[this.indexArray].category);
-    this.tasks[this.indexArray] = task;
-    console.log('После обновления' + this.tasks[this.indexArray].category);
+    //console.log('До обновления' + this.tasks[this.indexArray].category);
+    //this.tasks[this.indexArray] = task;
+    //console.log('После обновления' + this.tasks[this.indexArray].category);
+    this.taskRepositoryService.edit(task, this.indexArray);
   }
 
   get edit() {
@@ -101,22 +105,27 @@ export class TaskListComponent implements OnInit {
   }
 
   getTaskListsSize() {
-    return this.tasks.length;
+    return this.taskRepositoryService.size();
   }
 
   getTasksAmountByStatus(status: string) {
-    return this.tasks.filter(task => task.status === status).length;
+    return this.taskRepositoryService.getByStatus(status);
   }
 
   addTask(task: Task) {
-    this.tasks.push(task)
+    this.taskRepositoryService.add(task);
   }
 
   filterTasks($event) {
     this.visible = $event.target.checked;
   }
 
-  constructor(private deleteService: DeleteService,private editService: EditService,private router: Router,private authService: AuthService) {
+  constructor(private deleteService: DeleteService,
+              private editService: EditService,
+              private router: Router,
+              private taskRepositoryService: TaskRepositoryService,
+              private authService: AuthService) {
+    this.tasks = this.taskRepositoryService.getTasks();
   }
 
   ngOnInit() {

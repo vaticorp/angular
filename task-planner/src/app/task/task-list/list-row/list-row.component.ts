@@ -27,7 +27,8 @@ export class ListRowComponent implements OnInit {
     return this.helperService.beautifyDate(date,'YYYY-MM-DD','DD MMMM YY')
   }
 
-  constructor(private helperService: HelperService, private deleteService: DeleteService) {
+  constructor(private helperService: HelperService,
+              private deleteService: DeleteService) {
   }
 
   ngOnInit() {

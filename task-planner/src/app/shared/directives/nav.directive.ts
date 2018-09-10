@@ -7,7 +7,8 @@ export class NavDirective {
 
   @HostBinding('style.border-color') borderColor: string = 'transperent';
 
-  constructor(private element: ElementRef, private renderer: Renderer2) {
+  constructor(private element: ElementRef,
+              private renderer: Renderer2) {
     this.renderer.setStyle(this.element.nativeElement, 'cursor', 'pointer');
   }
 

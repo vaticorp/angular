@@ -12,6 +12,7 @@ import {EditService} from '../shared/services/edit.service';
 import { AuthService } from '../core/auth.service';
 import { AuthGuard } from '../shared/services/authguard.service';
 import {GuestGuard} from '../shared/services/guestguard.service';
+import { TaskRepositoryService } from '../shared/services/taskrepository.service';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import {GuestGuard} from '../shared/services/guestguard.service';
     DeleteService,
     EditService,
     AuthService,
+    TaskRepositoryService,
     AuthGuard,
     GuestGuard
   ],

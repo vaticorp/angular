@@ -12,7 +12,8 @@ export class HeaderComponent implements OnInit {
 
   userName = 'Святослав';
 
-  constructor(private activatedRoute: ActivatedRoute, private authService: AuthService) {
+  constructor(private activatedRoute: ActivatedRoute,
+              private authService: AuthService) {
     activatedRoute.params.subscribe((params)=> console.log(params['id']))
   }
 

@@ -13,7 +13,10 @@ export class TaskEditComponent implements OnInit, OnDestroy, OnChanges {
 
  @Input() edit;
 
-  constructor(private helperService: HelperService, private editService: EditService ,private router: Router, private route: ActivatedRoute) {
+  constructor(private helperService: HelperService,
+              private editService: EditService,
+              private router: Router,
+              private route: ActivatedRoute) {
   }
 
   cancel() {

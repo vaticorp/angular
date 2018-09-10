@@ -5,14 +5,15 @@
   [tasksPlanned]="getTasksAmountByStatus('Запланировано')"
 ></app-statistic>
 <br><br>
-<div *ngIf="editMode === false">
+<!--<div *ngIf="editMode === false">
   <app-task-add (addTaskEmitter)="addTask($event)"></app-task-add>
 </div>
 <div *ngIf="editMode === true">
   <app-task-edit (editTaskEmitter)="saveEdit($event)"
                  [edit]="edit">
   </app-task-edit>
-</div>
+</div>-->
+<app-task-add (addTaskEmitter)="addTask($event)"></app-task-add>
 <input type="checkbox" name="target" (change)="filterTasks($event)">Показывать завершенные задачи
 <table>
   <tr>
