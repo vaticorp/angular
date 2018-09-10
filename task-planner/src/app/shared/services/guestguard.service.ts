@@ -13,7 +13,7 @@ import { AuthService } from '../../core/auth.service';
 export class GuestGuard implements CanActivate, CanActivateChild {
 
   constructor(private authService: AuthService,
-              private router: Router){
+              private router: Router) {
   }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {

@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       alert('Введены ошибочные данные пользователя!');
       return;
     }
-      this.authService.setLoggedIn(true);
+      this.authService.setLoggedIn('true');
       this.router.navigate(['tasks']);
     }
 

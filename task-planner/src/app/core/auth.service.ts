@@ -17,7 +17,8 @@ export class AuthService {
   ];
 
   logOff() {
-    this._isLoggedIn = false;
+    localStorage.setItem('isLoggedIn', 'false');
+    //this._isLoggedIn = false;
     this.router.navigate(['enter']);
   }
 
@@ -34,10 +35,11 @@ export class AuthService {
   }
 
   isUserLoggedIn(): boolean {
-    return this._isLoggedIn;
+    return localStorage.getItem('isLoggedIn') === 'true';
   }
 
-  setLoggedIn(value: boolean) {
-    this._isLoggedIn = value;
+  setLoggedIn(value: string) {
+    //this._isLoggedIn = value;
+    localStorage.setItem('isLoggedIn', 'true');
   }
 }
