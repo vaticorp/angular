@@ -7,13 +7,11 @@ import { TaskModule } from './task/task.module';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {AppRoutingModule} from './app-routing/app-routing.module';
-import { HeaderComponent } from './core/header/header.component';
 import {LoginComponent} from './login/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     LoginComponent
   ],
   imports: [
