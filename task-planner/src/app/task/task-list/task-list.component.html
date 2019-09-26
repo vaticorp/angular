@@ -1,21 +1,49 @@
+<input type="checkbox" name="target" (change)="filterTasks($event)">Показывать завершенные задачи
+<app-task-add (addTaskEmitter)="addTask($event)"></app-task-add><br/>
+
+
+<div class="table">
+  <div class="d-tr">
+    <div class="d-th">Название задачи</div>
+    <div class="d-th">Категория</div>
+    <div class="d-th">Дата начала</div>
+    <div class="d-th">Дата окончания</div>
+    <div class="d-th">Статус</div>
+    <div class="d-th">Команда</div>
+    <div class="d-th">Команда</div>
+  </div>
+
+  <!--  <div class="d-tr" *ngFor="let item of tasks; let i = index">
+      <ng-container *ngIf="item.status === 'Выполнено'&& visible||!visible">
+      </ng-container>
+    </div>-->
+
+  <ng-container *ngFor="let item of tasks; let i = index">
+    <div class="d-tr" *ngIf="item.status === 'Выполнено'&& visible||!visible">
+      <app-list-row [name]=item.name
+                    [category]=item.category
+                    [dateStart]=item.dateStart
+                    [dateEnd]=item.dateEnd
+                    [status]=item.status></app-list-row>
+      <div class="d-td">
+        <button class="btn btn-danger" (click)="deleteTaskFromArray(item.name)">Удалить задачу</button>
+      </div>
+      <div class="d-td">
+        <button class="btn btn-danger" (click)="editTask(item,i)">Редактировать</button>
+      </div>
+    </div>
+  </ng-container>
+
+</div>
+
 <app-statistic
   [tasksAll]="getTaskListsSize()"
   [tasksFinish]="getTasksAmountByStatus('Выполнено')"
   [tasksOverdue]="getTasksAmountByStatus('Просрочено')"
   [tasksPlanned]="getTasksAmountByStatus('Запланировано')"
 ></app-statistic>
-<br><br>
-<!--<div *ngIf="editMode === false">
-  <app-task-add (addTaskEmitter)="addTask($event)"></app-task-add>
-</div>
-<div *ngIf="editMode === true">
-  <app-task-edit (editTaskEmitter)="saveEdit($event)"
-                 [edit]="edit">
-  </app-task-edit>
-</div>-->
-<app-task-add (addTaskEmitter)="addTask($event)"></app-task-add>
-<input type="checkbox" name="target" (change)="filterTasks($event)">Показывать завершенные задачи
-<table>
+
+<!--<table>
   <tr>
     <th>Название задачи</th>
     <th>Категория</th>
@@ -27,25 +55,22 @@
   </tr>
   <tr *ngFor="let item of tasks; let i = index">
     <ng-container *ngIf="item.status === 'Выполнено'&& visible||!visible">
-      <td>{{item.name}}</td>
+  &lt;!&ndash;    <td>{{item.name}}</td>
       <td>{{item.category}}</td>
       <td>{{item.dateStart}}</td>
       <td>{{item.dateEnd}}</td>
       <td [ngStyle]="{'background-color': item.status === 'Просрочено' ? 'red' : 'white'}">{{item.status}}
-      </td>
-      <td>
+      </td>&ndash;&gt;
+      <app-list-row
+        [name]=item.name
+        [category]=item.category
+        [dateStart]=item.dateStart
+        [dateEnd]=item.dateEnd
+        [status]=item.status>
         <button class="btn btn-danger" (click)="deleteTaskFromArray(item.name)">Удалить задачу</button>
-      </td>
-      <td>
         <button class="btn btn-danger" (click)="editTask(item,i)">Редактировать</button>
-      </td>
+      </app-list-row>
+
     </ng-container>
   </tr>
-</table>
-<app-list-row
-  [name]="'Убрать под столом'"
-  [category]="'Рабочие вопросы'"
-  [dateStart]="'2018-08-24'"
-  [dateEnd]="'2018-08-25'"
-  [status]="'Просрочено'"></app-list-row>
-<!--(deleteTaskEmitter)="deleteTaskFromArray($event)"-->
+</table>-->

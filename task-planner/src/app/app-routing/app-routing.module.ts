@@ -10,7 +10,10 @@ import { LoginComponent } from '../login/login/login.component';
 import { GuestGuard } from '../shared/services/guestguard.service';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'tasks', pathMatch: "full"},
+  {
+    path: '',
+    redirectTo: 'tasks',
+    pathMatch: "full"},
   {
     path: 'tasks',
     canActivateChild: [AuthGuard],
@@ -20,17 +23,19 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'notes', component: NotesListComponent,
+    path: 'notes',
+    component: NotesListComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: 'enter', component: LoginComponent,
+    path: 'enter',
+    component: LoginComponent,
     canActivate: [GuestGuard]
   }
 ];
 
 @NgModule({
-  imports: [CommonModule,BrowserModule, RouterModule.forRoot(routes)],
+  imports: [CommonModule, BrowserModule, RouterModule.forRoot(routes)],
   exports: [ RouterModule ],
   providers: []
 })

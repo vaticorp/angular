@@ -1,0 +1,28 @@
+*{
+  box-sizing: border-box;
+}
+.d-table{
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+.d-tr{
+  display: table-row;
+}
+.d-th{
+  display: table-cell;
+  vertical-align: inherit;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+.d-td{
+  display: table-cell;
+  text-align: center;
+  border: none;
+  border: 1px solid #ccc;
+  vertical-align: middle;
+}
+.d-td-test:not(.no-p){
+  padding: 4px;
+}

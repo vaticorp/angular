@@ -1,0 +1,28 @@
+.boundary {
+  margin-top: 5px;
+  border:3px solid blue;
+}
+
+legend {
+  width:auto !important;
+  font-size: 22px !important;
+  margin: 0px;
+}
+
+.field {
+  width: 120px;
+}
+
+.field-date {
+  width: 160px;
+}
+
+.label {
+  color: maroon;
+  padding: 10px 10px 0 10px;
+}
+
+.add-button {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}

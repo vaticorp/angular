@@ -1,14 +1,19 @@
-Задача: <input type="text" nav size="5" name="name" [(ngModel)]="edit.name">
-Категория: <input type="text" nav size="5" name="category" [(ngModel)]="edit.category">
-Начало<input type="text" log nav size="5" name="dateStart" [(ngModel)]="edit.dateStart">
-Окончание: <input type="text" nav log size="5" name="dateEnd" [(ngModel)]="edit.dateEnd">
-<!--Статус: <input type="text" nav size="5" name="status" [(ngModel)]="status">-->
-Статус: <select name="status" [(ngModel)]="edit.status">
+<label class="label" for="name">Задача:</label>
+<input id="name" class="field" type="text" nav size="5" name="name" [(ngModel)]="edit.name">
+<label class="label" for="category">Категория:</label>
+<input id="category" class="field" type="text" nav size="5" name="category" [(ngModel)]="edit.category">
+<label class="label" for="dateStart">Начало:</label>
+<input id="dateStart" class="field-date" type="text" log nav size="5" name="dateStart" [(ngModel)]="edit.dateStart">
+<label class="label" for="dateEnd">Окончание:</label>
+<input id="dateEnd" class="field-date" type="text" nav log size="5" name="dateEnd" [(ngModel)]="edit.dateEnd">
+
+<label class="label" for="status">Статус:</label>
+<select id="status" name="status" [(ngModel)]="edit.status">
   <option value="Выполнено">Выполнено</option>
   <option value="Выполняется">Выполняется</option>
   <option value="Запланировано">Запланировано</option>
   <option value="Просрочено ">Просрочено</option>
 </select>
-<button class="btn btn-success" (click)="saveTask()">Сохранить</button>
-<button class="btn btn-success" (click)="cancel()">Отмена</button>
+<button class="btn add-button btn-success" (click)="saveTask()">Сохранить</button>
+<button class="btn add-button btn-secondary" (click)="cancel()">Отмена</button>
 

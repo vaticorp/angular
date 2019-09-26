@@ -1,0 +1,9 @@
+.field {
+  width: 120px;
+  font-weight: bold;
+}
+
+.label {
+  color: teal;
+  padding: 10px 10px 0 10px;
+}

@@ -1,6 +1,9 @@
-<br>
-Всего задач: <input type="text" size="3" name="all" value="{{tasksAll}}">
-Запланировано: <input type="text" size="3" name="plan" value="{{tasksPlanned}}">
-Просрочено<input type="text" size="3" name="fail" value="{{tasksFinish}}">
-Выполнено: <input type="text" size="3" name="complete" value="{{tasksOverdue}}">
+  <label class="label" for="all">Всего задач:</label>
+  <input  id="all" class="field" type="text" size="3" name="all" readonly="true" value="{{tasksAll}}">
+  <label class="label" for="plan">Запланировано:</label>
+  <input id="plan" class="field" type="text" size="3" name="plan" readonly="true" value="{{tasksPlanned}}">
+  <label class="label" for="expire">Просрочено:</label>
+  <input id="expire" class="field" type="text" size="3" name="fail" readonly="true" value="{{tasksFinish}}">
+  <label class="label" for="complete">Выполнено:</label>
+  <input id="complete" class="field" type="text" size="3" name="complete" readonly="true" value="{{tasksOverdue}}">
 

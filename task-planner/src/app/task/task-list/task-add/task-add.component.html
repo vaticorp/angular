@@ -1,6 +1,14 @@
-Задача: <input type="text" nav size="3" name="name" [(ngModel)]="name">
-Категория: <input type="text" nav size="3" name="category" [(ngModel)]="category">
-Начало<input type="text" log nav size="3" name="dateStart" [(ngModel)]="dateStart">
-Окончание: <input type="text" log nav size="3" name="dateEnd" [(ngModel)]="dateEnd">
-Статус: <input type="text" nav size="3" name="status" [(ngModel)]="status">
-<button class="btn btn-success" (click)="addTask()">Добавить задачу</button>
+<fieldset class="boundary">
+  <legend>Новая задача</legend>
+  <label class="label" for="task">Задача:</label>
+  <input id="task" class="field" type="text" nav size="3" name="name" [(ngModel)]="name">
+  <label class="label" for="category">Категория:</label>
+  <input id="category" class="field" type="text" nav size="3" name="category" [(ngModel)]="category">
+  <label class="label" for="start_date">Начало:</label>
+  <input id="start_date" class="field-date" type="text" log nav size="3" name="dateStart" [(ngModel)]="dateStart">
+  <label class="label" for="end_date">Окончание:</label>
+  <input id="end_date" class="field-date" type="text" log nav size="3" name="dateEnd" [(ngModel)]="dateEnd">
+  <label class="label" for="status">Статус:</label>
+  <input id="status" class="field" type="text" nav size="3" name="status" [(ngModel)]="status">
+  <button class="btn btn-secondary add-button" (click)="addTask()">Добавить задачу</button>
+</fieldset>

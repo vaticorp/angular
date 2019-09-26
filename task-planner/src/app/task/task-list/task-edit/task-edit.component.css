@@ -1,0 +1,17 @@
+.field {
+  width: 120px;
+}
+
+.field-date {
+  width: 160px;
+}
+
+.label {
+  color: maroon;
+  padding: 10px 10px 0 10px;
+}
+
+.add-button {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
