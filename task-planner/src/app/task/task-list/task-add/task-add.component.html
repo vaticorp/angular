@@ -9,6 +9,11 @@
   <label class="label" for="end_date">Окончание:</label>
   <input id="end_date" class="field-date" type="text" log nav size="3" name="dateEnd" [(ngModel)]="dateEnd">
   <label class="label" for="status">Статус:</label>
-  <input id="status" class="field" type="text" nav size="3" name="status" [(ngModel)]="status">
+  <select id="status" name="status" [(ngModel)]="status">
+    <option value="Выполнено">Выполнено</option>
+    <option value="Выполняется">Выполняется</option>
+    <option value="Запланировано">Запланировано</option>
+    <option value="Просрочено ">Просрочено</option>
+  </select>
   <button class="btn btn-secondary add-button" (click)="addTask()">Добавить задачу</button>
 </fieldset>

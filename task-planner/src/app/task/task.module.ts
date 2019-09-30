@@ -13,6 +13,7 @@ import { AuthService } from '../core/auth.service';
 import { AuthGuard } from '../shared/services/authguard.service';
 import {GuestGuard} from '../shared/services/guestguard.service';
 import { TaskRepositoryService } from '../shared/services/taskrepository.service';
+import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { TaskRepositoryService } from '../shared/services/taskrepository.service
     ListRowComponent,
     StatisticComponent,
     TaskAddComponent,
-    TaskEditComponent
+    TaskEditComponent,
+    UploadComponent
   ]
 })
 export class TaskModule { }
